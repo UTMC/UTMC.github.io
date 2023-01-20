@@ -103,7 +103,7 @@ body {
 }
 .singular #content,
 .left-sidebar.singular #content {
-	margin: 0 7.6%;
+	margin: 0 0%;
 	position: relative;
 	width: auto;
 }
@@ -112,7 +112,8 @@ body {
 .singular footer.entry-meta,
 .singular #comments-title {
 	margin: 0 auto;
-	width: 68.9%;
+	/* width: 68.9%; */
+	width: 80%;
 }
 
 /* Attachments */
