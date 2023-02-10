@@ -2486,10 +2486,16 @@ p.comment-form-comment {
 		width: auto;
 	}
 }
-@media (max-width: 650px) {
+
+@media (max-width: 800px) {
 	.horizontaldiv {
 		display: block;
 	}
+}
+
+
+@media (max-width: 650px) {
+	
 	/* @media (max-width: 650px) Reduce font-sizes for better readability on smaller devices */
 	body, input, textarea {
 		font-size: 13px;
