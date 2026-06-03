@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTMC 50</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.8;
+      color: #333;
+      background-color: #fafafa;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero .subtitle {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* キャッチコピー */
+    .catchcopy {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .catchcopy p {
+      font-size: 1.5rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    /* イベント説明 */
+    .event-info {
+      background-color: #f5f5f5;
+      padding: 80px 20px;
+    }
+
+    .event-info .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .event-info h2 {
+      font-size: 2rem;
+      color: #667eea;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .event-details {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .event-details dl {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px 20px;
+    }
+
+    .event-details dt {
+      font-weight: bold;
+      color: #764ba2;
+    }
+
+    .event-details dd {
+      color: #555;
+    }
+
+    /* 年表セクション */
+    .timeline-section {
+      padding: 80px 20px;
+      background-color: #fff;
+    }
+
+    .timeline-section h2 {
+      font-size: 2rem;
+      color: #667eea;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 年表ヘッダー（PC向け） */
+    .timeline-header {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-header {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .timeline-header span {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #555;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .timeline-header .circle-header {
+        background-color: #667eea;
+        color: white;
+      }
+
+      .timeline-header .world-header {
+        background-color: #e67e22;
+        color: white;
+      }
+    }
+
+    /* 年表アイテム */
+    .timeline-item {
+      margin-bottom: 24px;
+    }
+
+    /* モバイル向けスタイル */
+    .timeline-item .year {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .timeline-item .events {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .timeline-item .event {
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .timeline-item .event.circle {
+      background-color: #e8ecfc;
+      border-left: 4px solid #667eea;
+    }
+
+    .timeline-item .event.world {
+      background-color: #fdf2e9;
+      border-left: 4px solid #e67e22;
+    }
+
+    .timeline-item .event-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .event.circle .event-label {
+      background-color: #667eea;
+      color: white;
+    }
+
+    .timeline-item .event.world .event-label {
+      background-color: #e67e22;
+      color: white;
+    }
+
+    /* PC向けスタイル */
+    @media (min-width: 768px) {
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .timeline-item .year {
+        grid-column: 2;
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 1rem;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      .timeline-item .events {
+        display: contents;
+      }
+
+      .timeline-item .event {
+        border-left: none;
+        border-radius: 8px;
+      }
+
+      .timeline-item .event.circle {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: right;
+        border-right: 4px solid #667eea;
+        border-left: none;
+      }
+
+      .timeline-item .event.world {
+        grid-column: 3;
+        grid-row: 1;
+        text-align: left;
+        border-left: 4px solid #e67e22;
+      }
+
+      .timeline-item .event-label {
+        display: none;
+      }
+    }
+
+    /* フッター */
+    footer {
+      background-color: #333;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* レスポンシブ調整 */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 16px;
+        min-height: 50vh;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .catchcopy {
+        padding: 40px 16px;
+      }
+
+      .catchcopy p {
+        font-size: 1.2rem;
+      }
+
+      .event-info {
+        padding: 50px 16px;
+      }
+
+      .event-details {
+        padding: 24px;
+      }
+
+      .event-details dl {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .event-details dt {
+        margin-top: 12px;
+      }
+
+      .timeline-section {
+        padding: 50px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <h1>UTMC 50</h1>
+    <p class="subtitle">東大マイコンクラブ創立50周年パーティ</p>
+  </section>
+
+  <!-- キャッチコピー -->
+  <section class="catchcopy">
+    <p>東大マイコンクラブは2026年で50周年。集まって祝おう</p>
+  </section>
+
+  <!-- イベント説明 -->
+  <section class="event-info">
+    <div class="container">
+      <h2>イベント概要</h2>
+      <div class="event-details">
+        <dl>
+          <dt>日時</dt>
+          <dd>2026年10月31日（土）18:00〜20:00</dd>
+          <dt>会場</dt>
+          <dd>ホテル東京ガーデンパレス<br>〒113-0034 東京都文京区湯島1-7-5 [<a href="https://maps.app.goo.gl/Va8xPT6Lij4K74Sc8" target="_blank">地図</a>]</dd>
+          <dt>会費</dt>
+          <dd>未定（15,000円程度を予定。現役生は1,000円くらい？）</dd>
+          <dt>申込</dt>
+          <dd>専用フォームよりお申し込みください</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 年表セクション -->
+  <section class="timeline-section">
+    <h2>50年のあゆみ</h2>
+    <div class="timeline-container">
+      <div class="timeline-header">
+        <span class="circle-header">サークルの出来事</span>
+        <span></span>
+        <span class="world-header">世間の出来事</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1971</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            11月：Intel 4004 発売。世界初の1チップ商用マイクロプロセッサ<br>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1972</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            4月：Intel 8008 発売<br>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1974</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            3月：Motorola 6800 発表
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1975</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            4月：Micro-Soft 設立（11月にMicrosoftとして登録される）<br>
+            9月：MOS 6502 発表
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1976</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            4月～12月のどこか：東京大学マイクロコンピュータ同好会設立
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            4月：Apple Computer Company 設立（現Apple Inc.）<br>
+            7月：Apple I 発売<br>
+            7月：Zilog Z80 発売<br>
+            10月：日本コンピュータクラブ連盟によって日本初のマイコン雑誌である月刊 I/O 創刊。工学社が設立され2号目からは工学社発行（2026年現在も続刊中）
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1977</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            12月：中沢真也 著「マイコン活用法」（廣済堂出版）出版
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            5月：アスキー出版設立<br>
+            6月：月刊アスキー創刊<br>
+            6月：Apple II 発売<br>
+            12月：TRS-80 Model I 発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1978</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            4月～翌年4月のどこか：「東大マイコンクラブ（東大マイクロコンピュータクラブ）」に改名
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            2月：日本でCommodore PET 2001発売<br>
+            9月：日立マイクロコンピューター ベーシックマスター MB-6880（ベーシックマスター レベル1）発売<!-- https://museum.ipsj.or.jp/heritage/MB-6880.html --><br>
+            10月：アスキーマイクロソフト設立（現日本マイクロソフト）<br> 
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1982</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            12月：アスキー出版がアスキーに商号変更
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1985</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            部員数100名突破。初の全国大会出場
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            つくば万博開催
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1995</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            創立20周年記念イベント開催
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            Windows 95発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2001</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            公式ホームページ開設
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            初代iPod発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2010</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            全国大会優勝を達成
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            iPad発売、SNS全盛期へ
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2020</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            オンライン活動開始、新たな挑戦
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            新型コロナウイルス流行
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2026</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            創立50周年記念同窓会開催
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            AI技術が日常に浸透
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 サークル同窓会実行委員会</p>
+  </footer>
+</body>
+</html>
