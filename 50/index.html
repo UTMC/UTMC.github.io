@@ -20,30 +20,111 @@
 
     /* ヒーローセクション */
     .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      --utmc-blue: #0077cc;
+      --utmc-ink: #111820;
+
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: minmax(180px, 0.9fr) minmax(240px, 1.35fr);
       align-items: center;
+      gap: clamp(24px, 5vw, 72px);
+
+      width: 100%;
+      aspect-ratio: 1200 / 630;
+      min-height: 320px;
+      padding: clamp(32px, 7vw, 88px);
+
+      background:
+        linear-gradient(135deg, rgba(0, 119, 204, 0.08), transparent 35%),
+        linear-gradient(315deg, rgba(0, 119, 204, 0.12), transparent 42%),
+       #fff;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 16px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: rgba(0, 119, 204, 0.06);
+      transform: skewX(-18deg);
+    } 
+
+    .hero::before {
+      width: 32%;
+      height: 140%;
+      right: 10%;
+      top: -20%;
+    }
+
+    .hero::after {
+      width: 40%;
+      height: 60%;
+      right: -12%;
+      bottom: -10%;
+      background: rgba(0, 119, 204, 0.1);
+    }
+
+    .hero__logo {
+      width: min(100%, 430px);
+      height: auto;
+      display: block;
+    }
+
+    .hero__title {
+      margin: 0;
+      color: var(--utmc-ink);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: clamp(56px, 11vw, 156px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      white-space: nowrap;
+    }
+
+    .hero__accent {
+      color: var(--utmc-blue);
+      margin-left: 0.12em;
     }
 
     .hero .subtitle {
       font-size: 1.4rem;
       opacity: 0.9;
       font-weight: 300;
+      margin-top: 1em;
+      padding-left: 4em;
     }
 
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+        aspect-ratio: auto;
+        margin-top: 2em;
+      }
+
+      .hero__logo {
+        width: min(70vw, 280px);
+      }
+
+      .hero__title {
+        font-size: clamp(48px, 16vw, 96px);
+      }
+
+      .hero .subtitle {
+        padding-left: 0;
+        margin-top: 1em;
+      }
+    }
+ 
     /* キャッチコピー */
     .catchcopy {
       background-color: #fff;
@@ -320,14 +401,28 @@
 </head>
 <body>
   <!-- ヒーローセクション -->
+
   <section class="hero">
-    <h1>UTMC 50</h1>
-    <p class="subtitle">東大マイコンクラブ創立50周年パーティ</p>
+    <img
+      class="hero__logo"
+      src="utmclogo.svg"
+      alt=""
+      aria-hidden="true"
+    />
+
+    <div>
+      <h1 class="hero__title">
+        <span>UTMC</span>
+        <span class="hero__accent">50</span>
+      </h1>
+      <p class="subtitle">東大マイコンクラブ創立50周年パーティ</p>
+    </div>
   </section>
 
   <!-- キャッチコピー -->
   <section class="catchcopy">
-    <p>東大マイコンクラブは2026年で50周年。集まって祝おう</p>
+    <p>東大マイコンクラブは2026年で50周年</p>
+    <p>集まって祝おう</p>
   </section>
 
   <!-- イベント説明 -->
@@ -512,9 +607,6 @@
             3月：東大マイコンクラブ 著「それゆけ!マイコン」 （集英社）出版<br>
             4月：TAITO「ちゃっくんぽっぷ」稼働開始（オリジナルは日立のベーシックマスターレベル3でUTMC部員のzakが開発した「Chack'n Chack」）
           </div>
-          <div class="event world">
-            <span class="event-label">世間</span>
-          </div>
         </div>
       </div>
 
@@ -523,7 +615,7 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            つくば万博開催
+             国際科学技術博覧会（つくば万博）開催
           </div>
         </div>
       </div>
