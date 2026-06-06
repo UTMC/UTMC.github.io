@@ -20,22 +20,10 @@
 
     /* ヒーローセクション */
     .hero {
-      --utmc-blue: #0077cc;
+      --utmc-blue: #0b8bee;
       --utmc-ink: #111820;
 
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-
-      display: grid;
-      grid-template-columns: minmax(180px, 0.9fr) minmax(240px, 1.35fr);
-      align-items: center;
-      gap: clamp(24px, 5vw, 72px);
-
       width: 100%;
-      aspect-ratio: 1200 / 630;
-      min-height: 320px;
-      padding: clamp(32px, 7vw, 88px);
 
       background:
         linear-gradient(135deg, rgba(0, 119, 204, 0.08), transparent 35%),
@@ -43,28 +31,18 @@
        #fff;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      background: rgba(0, 119, 204, 0.06);
-      transform: skewX(-18deg);
-    } 
+    .hero_container {
+       display: grid;
+      grid-template-columns: 180px 1fr;
+      align-items: center;
+      gap: clamp(24px, 5vw, 72px);
 
-    .hero::before {
-      width: 32%;
-      height: 140%;
-      right: 10%;
-      top: -20%;
-    }
+      max-width: 1200px;
+      aspect-ratio: 1200 / 630;
+      min-height: 320px;
+      padding: clamp(32px, 7vw, 88px);
 
-    .hero::after {
-      width: 40%;
-      height: 60%;
-      right: -12%;
-      bottom: -10%;
-      background: rgba(0, 119, 204, 0.1);
+      margin: 0 auto;
     }
 
     .hero__logo {
@@ -74,7 +52,7 @@
     }
 
     .hero__title {
-      margin: 0;
+      margin-top: 30px;
       color: var(--utmc-ink);
       font-family:
         system-ui,
@@ -104,6 +82,10 @@
 
     @media (max-width: 720px) {
       .hero {
+        width: 100%;
+      }
+
+      .hero_container {
         grid-template-columns: 1fr;
         text-align: center;
         justify-items: center;
@@ -327,7 +309,7 @@
       .timeline-item .event.circle {
         grid-column: 1;
         grid-row: 1;
-        text-align: right;
+        text-align: left;
         border-right: 4px solid #667eea;
         border-left: none;
       }
@@ -403,19 +385,21 @@
   <!-- ヒーローセクション -->
 
   <section class="hero">
-    <img
-      class="hero__logo"
-      src="utmclogo.svg"
-      alt=""
-      aria-hidden="true"
-    />
+    <div class="hero_container">
+      <img
+        class="hero__logo"
+        src="utmclogo.svg"
+        alt=""
+        aria-hidden="true"
+      />
 
-    <div>
-      <h1 class="hero__title">
-        <span>UTMC</span>
-        <span class="hero__accent">50</span>
-      </h1>
-      <p class="subtitle">東大マイコンクラブ創立50周年パーティ</p>
+      <div>
+        <h1 class="hero__title">
+          <span>UTMC</span>
+          <span class="hero__accent">50</span>
+        </h1>
+        <p class="subtitle">東大マイコンクラブ創立50周年パーティ</p>
+      </div>
     </div>
   </section>
 
@@ -438,7 +422,7 @@
           <dt>会費</dt>
           <dd>未定（15,000円程度を予定。現役生は1,000円くらい？）</dd>
           <dt>申込</dt>
-          <dd>専用フォームよりお申し込みください [<a href="https://forms.gle/8WJdxba9q1CAHftw6" target="_blank">フォームはこちら</a>]</dd>
+          <dd>専用フォームよりお申し込みください<br> [<a href="https://forms.gle/8WJdxba9q1CAHftw6" target="_blank">フォームはこちら</a>]</dd>
         </dl>
       </div>
     </div>
@@ -468,7 +452,7 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            11月：Intel 4004 発売。世界初の1チップ商用マイクロプロセッサ。ビジコン（日本）とインテル（米国）による共同開発
+            <strong>11月</strong>：Intel 4004 発売。世界初の1チップ商用マイクロプロセッサ。ビジコン（日本）とインテル（米国）による共同開発
           </div>
         </div>
       </div>
@@ -478,7 +462,7 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            4月：Intel 8008 発売
+            <strong>4月</strong>：Intel 8008 発売
           </div>
         </div>
       </div>
@@ -488,7 +472,7 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            TLCS-12 開発（東芝）。日本初のマイクロプロセッサ（12bit CPU）。フォード車の車載用
+            ・TLCS-12 開発（東芝）。日本初のマイクロプロセッサ（12bit CPU）。フォード車の車載用
           </div>
         </div>
       </div>
@@ -498,9 +482,9 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            3月：Motorola 6800 発表<br>
-            4月：Intel 8080 発売（8008ソース互換）<br>
-            12月：Altair 8800 発売（MITS社）S-100バス
+            <strong>3月</strong>：Motorola 6800 発表<br>
+            <strong>4月</strong>：Intel 8080 発売（8008ソース互換）<br>
+            <strong>12月</strong>：Altair 8800 発売（MITS社）S-100バス
           </div>
         </div>
       </div>
@@ -510,9 +494,9 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            4月：Micro-Soft 設立（11月にMicrosoftとして登録）<br>
-            9月：MOS Technology 6502 発表<br>
-            12月：IMSAI 8080発売（Altair 8080互換）
+            <strong>4月</strong>：Micro-Soft 設立（11月にMicrosoftとして登録）<br>
+            <strong>9月</strong>：MOS Technology 6502 発表<br>
+            <strong>12月</strong>：IMSAI 8080発売（Altair 8080互換）
           </div>
         </div>
       </div>
@@ -522,17 +506,17 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            東京大学マイクロコンピュータ同好会設立（4月から12月のどこか）
+            ・東京大学マイクロコンピュータ同好会設立（4月から12月のどこか）
           </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            MOS KIM-1発売（4月頃?）。MOS 6502を使った完成品のワンボードマイコン（BYTE誌 1976年4月号、5月号の広告より）<br>
-            4月：Apple Computer Company 設立（現Apple Inc.）<br>
-            5月：東芝 TLCS-12A EX-0 発売。日本国産初のワンボードマイコン<br>
-            7月：Apple I発売<br>
-            7月：Zilog Z80 発売（8080バイナリ互換）<br>
-            8月：NEC TK-80発売<br>
-            10月：月刊 I/O 創刊（日本コンピュータクラブ連盟、工学社）。2026年現在も刊行中
+            ・MOS KIM-1発売（4月頃?）。MOS 6502を使った完成品のワンボードマイコン（BYTE誌 1976年4月号、5月号の広告より）<br>
+            <strong>4月</strong>：Apple Computer Company 設立（現Apple Inc.）<br>
+            <strong>5月</strong>：東芝 TLCS-12A EX-0 発売。日本国産初のワンボードマイコン<br>
+            <strong>7月</strong>：Apple I発売<br>
+            <strong>7月</strong>：Zilog Z80 発売（8080バイナリ互換）<br>
+            <strong>8月</strong>：NEC TK-80発売<br>
+            <strong>10月</strong>：月刊 I/O 創刊（日本コンピュータクラブ連盟、工学社）。2026年現在も刊行中
           </div>
         </div>
       </div>
@@ -542,14 +526,18 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            12月：中沢真也 著「マイコン活用法」（廣済堂出版）出版
+            <strong>7月</strong>：新宿にて首都圏の大学4校と他1グループでマイコン愛好者会合を開催<br>
+            <strong>7月</strong>：月刊  I/O アイ・オー 1977年8月号発売。付録の「マイコン新聞 BINARY」の企画編集を担当（すくなくとも1977年11月号まで）<br>
+            <strong>8月</strong>：首都圏ブロック大学マイコン連絡協議会(仮称) (東大・電通大・早大・理科大) 第2回会合開催。バスの規格統一について話し合う<br>
+            <strong>12月</strong>：中沢真也 著「マイコン活用法」（廣済堂出版）出版
           </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            5月：工学社出身者によりアスキー出版設立（後のアスキー。現在はKADOKAWAの一部）<br>
-            6月：月刊アスキー創刊<br>
-            6月：Apple II発売<br>
-            12月：TRS-80（Model I）発売
+            <strong>5月</strong>：工学社出身者によりアスキー出版設立（後のアスキー。現在はKADOKAWAの一部）<br>
+            <strong>6月</strong>：月刊アスキー創刊（アスキー出版局）<br>
+            <strong>6月</strong>：Apple II発売<br>
+            <strong>8月</strong>：月刊マイコン創刊（電波新聞社）<br>
+            <strong>12月</strong>：TRS-80（Model I）発売
           </div>
         </div>
       </div>
@@ -559,13 +547,15 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            東大マイコンクラブ（東京大学マイクロコンピュータクラブ）に改名
+            ・東大マイコンクラブ（東京大学マイクロコンピュータクラブ）に改名<br>
+            <strong>5月</strong>：平和島で開催の「マイクロコンピュータショウ&#x27;78」の日本マイコンクラブのブースに画像処理システムを出典
           </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            2月：日本でCommodore PET 2001発売<br>
-            9月：日立マイクロコンピューター ベーシックマスター MB-6880（ベーシックマスター レベル1）発売<br>
-            10月：アスキーマイクロソフト設立（現日本マイクロソフト）
+            <strong>2月</strong>：日本でCommodore PET 2001発売<br>
+            <strong>2月</strong>：月刊 RAM 創刊（広済堂出版）<br>
+            <strong>9月</strong>：日立マイクロコンピューター ベーシックマスター MB-6880（ベーシックマスター レベル1）発売<br>
+            <strong>10月</strong>：アスキーマイクロソフト設立（現日本マイクロソフト）
           </div>
         </div>
       </div>
@@ -575,7 +565,10 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            11月：駒場祭にてPET 2001で「万引き少年ゲーム」（作：鈴木浩）を展示。世界初のステルスゲームと言われている
+            ・オリジナルのマイコンシステム「NECOM」の1号機作成（この名前は以後も使われるようになる）<br>
+            ・正確な年・時期は不明だがTAITOへのアイデア出しを担当するTOTAIを設立。1990年代まで運営された<br>
+            <strong>5月</strong>：「マイクロコンピュータ総合カタログ 1979」（広済堂出版）発売。東大マイコンクラブも協力<br>
+            <strong>11月</strong>：駒場祭にてPET 2001で「万引き少年ゲーム」（作：鈴木浩）を展示。世界初のステルスゲームと言われている
           </div>
         </div>
       </div>
@@ -585,7 +578,8 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            2月：月刊「RAM」にPET 2001用「万引き少年ゲーム」を掲載（作：鈴木浩）。後に他機種に他の人によって移植されたものがマイコンBASICマガジン等に掲載される
+            <strong>2月</strong>：月刊「RAM」にPET 2001用「万引き少年ゲーム」を掲載（作：鈴木浩）。後に他機種に他の人によって移植されたものがマイコンBASICマガジン等に掲載される<br>
+            <strong>5月</strong>：「マイクロコンピュータ総合カタログ 1980」（広済堂出版）発売。東大マイコンクラブも協力
           </div>
         </div>
       </div>
@@ -595,7 +589,9 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            10月：東大マイコンクラブ 著「だからいまマイコン」（集英社）出版。表紙は鳥山明
+            <strong>8月</strong>：「Weeklyプレイボーイ 1981年8月25日号」（集英社）の記事「PBマイコンファイル &quot;激る&quot; ブームの 最新情報をキミにコーチ！〔コンピュータ博士〕に なるための全7章」に駒場寮北寮 S21号室の部室(?)への取材記事<br>
+            <strong>10月</strong>：「週刊ポスト 1981年10月30号」（小学館）の「&lt;日米ビデオビジネス戦争&gt; 4400億円市場「コンピュータ・グラフィックス」を狙え！テクノシリーズ丸儲け編(第2回)」という記事にてマイコンクラブ部員のコメント掲載<br>
+            <strong>10月</strong>：東大マイコンクラブ 著「だからいまマイコン」（集英社）出版。表紙は鳥山明。35,000部売れたらしい
           </div>
         </div>
       </div>
@@ -605,12 +601,26 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            2月：アスキーAXシリーズ第1弾、「AX-1」発売。AXシリーズはUTMC部員の滝口らが開発<br>
-            10月：東大マイコンクラブ 著「パピコン級ホームコンピュータ最大限活用法」 （集英社）出版
+            <strong>2月</strong>：アスキーAXシリーズ第1弾、「AX-1」発売。AXシリーズはUTMC部員の滝口らが開発<br>
+            <strong>3月</strong>：1983年発行の「マイコン雑学いろいろ実践読本」に「学生寮の十六畳もある部屋」を1982年3月まで使用していたとの記述あり<br>
+            <strong>10月</strong>：東大マイコンクラブ 著「パピコン級ホームコンピュータ最大限活用法」 （集英社）出版
           </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            12月：アスキー出版がアスキーに商号変更
+            ・在日米軍向け「CORTON-NET」や「MacEvent」といった日本初のパソコン通信ホスト局が開設<br>
+            <strong>12月</strong>：アスキー出版がアスキーに商号変更
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1983</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            ・テレビ朝日「歌謡ドッキリ大放送!!」の占星術のコーナーを松岡肇が担当（詳細な時期は不明）<br>
+            <strong>5月</strong>：「マイコン雑学いろいろ実践読本」（アスキー出版局）に「元祖マイコン少年たち こんなに大きくなりました！」としてUTMCの部室（学生会館2階 214号室）への取材記事掲載<br>
+            <strong>5月</strong>：日本経済新聞 編「ドキュメント新・産業革命 2 (コンピューターの挑戦)」（日本経済新聞）に学生会館214号室を訪問しての取材記事掲載
           </div>
         </div>
       </div>
@@ -620,8 +630,14 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            3月：東大マイコンクラブ 著「それゆけ!マイコン」（集英社）出版<br>
-            4月：TAITO「ちゃっくんぽっぷ」稼働開始（オリジナルは日立のベーシックマスターレベル3でUTMC部員のzakが開発した「Chack&#x27;n Chack」）
+            <strong>3月</strong>：東大マイコンクラブ 著「それゆけ!マイコン」（集英社）出版<br>
+            <strong>4月</strong>：TAITO「ちゃっくんぽっぷ」稼働開始（オリジナルは日立のベーシックマスターレベル3でUTMC部員のzakが開発した「Chack&#x27;n Chack」）<br>
+            <strong>8月</strong>：松岡肇著「スタードッキリ占星術」（リヨン社）出版
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>1月</strong>：Macintosh 発売<br>
+            <strong>9月</strong>：慶応と東工大の間が接続。10月には東大とも接続し、実験ネットワークとしての運用開始。JUNETとなる。後に日本のインターネットとなる
           </div>
         </div>
       </div>
@@ -631,7 +647,52 @@
         <div class="events">
           <div class="event world">
             <span class="event-label">世間</span>
-            国際科学技術博覧会（つくば万博）開催
+            <strong>3月</strong>：国際科学技術博覧会（つくば万博）開催<br>
+            <strong>4月</strong>：通信の自由化（電気通信事業法施行）<br>
+            <strong>5月</strong>：アスキーネットが実験サービスとして開局。Mapletown Network開局のきっかけとなる
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1986</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>8月</strong>：太田昌孝、竹内あきら（滝口彰）、大口孝之 著「応用グラッフィクス」（アスキー）出版<br>
+            <strong>9月</strong>：日経MIXが実験サービス開始<br>
+            <strong>10月</strong>：アニメ専門パソコン通信ホスト局「Mapletown Network」開局。いつ頃からか本郷の部室「本郷研究所」に置かれる。SysOp.はUTMC現役部員が代々務める
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>4月</strong>：PC-VAN 開局
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1987</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            ・OBの太田昌孝、湯浅敬がCG制作に関わったキリンメッツCM「アイアンライダー」の放送。制作会社の太陽企画ではUTMC関係者が代々バイトを続けた<br>
+            <strong>3月</strong>：SHARP X68000付属のワープロ(?)をOBのXevi本が担当<br>
+            <strong>7月</strong>：OBの蒲地輝尚 著「はじめて読む8086 : 16ビット・コンピュータをやさしく語る」（アスキー）出版
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>3月</strong>：SHARP X68000発売<br>
+            <strong>4月</strong>：NIFTY-Serve 開局
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1988</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>11月</strong>：ASAHIパソコンネット開局。後に運営チームが株式会社アトソンとして朝日新聞社から独立
           </div>
         </div>
       </div>
@@ -641,11 +702,60 @@
         <div class="events">
           <div class="event circle">
             <span class="event-label">サークル</span>
-            部室が学生会館303号室に移転
+            <strong>4月</strong>：部室が学生会館214号室から303号室に移転
           </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            1月：「平成」に改元
+            <strong>1月</strong>：「平成」に改元
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1990</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>4月</strong>：株式会社アトソン（現朝日ネット）設立。UTMC OBが創立が2名ほど創設メンバーとして関わる。以後、アルバイトや社員としてUTMC関係者が数多く関わる
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1992</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            ・メーリングリスト運用開始<br>
+            <strong>7月</strong>：蒲地輝尚 著「はじめて読むC言語 : プログラミング環境のスタンダード」（アスキー）出版
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>11月</strong>：日本初の商用インターネット接続サービス（UUCP接続）SPINがAT&amp;T JENSによりスタート<br>
+            <strong>12月</strong>：インターネットイニシアティブ企画（後のIIJ）設立
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1993</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>5月</strong>：Windows 3.1（日本語版）発売<br>
+            <strong>7月</strong>：IIJ、UUCP接続サービス開始
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1994</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>6月</strong>：Mapletown Network、mapletown.or.jp ドメインを取得<br>
+            <strong>8月</strong>：Mapletown Network、IIJとUUCP接続を開始（接続準備はIIJ社設立前）<br>
+            <strong>9月</strong>：Mapletown Network、UUCP経由でのメール接続を開始
           </div>
         </div>
       </div>
@@ -653,9 +763,124 @@
       <div class="timeline-item">
         <div class="year">1995</div>
         <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>4月</strong>：蒲地輝尚 著「はじめて読む486 : 32ビットコンピュータをやさしく語る」（アスキー）出版<br>
+            <strong>5月</strong>：UTMC本郷研究所、外部と64kbpsの専用線接続が敷設され、TCP/IPでの接続を開始
+          </div>
           <div class="event world">
             <span class="event-label">世間</span>
-            Windows 95発売
+            <strong>11月</strong>：Windows 95（日本語版）発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1996</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            ・OBのソニーCSLの増井俊之、予測変換機能機能の先駆けであるPOBox開発。その後Apple社でiPhoneでの日本語入力システムに携わった<br>
+            <strong>6月</strong>：utmc.or.jp ドメイン取得<br>
+            <strong>9月</strong>：OBの山田達司、Pilot用のJ-Viewerを開発。UTMCのメーリングリストにて話題が先行していた<br>
+            <strong>10月</strong>：山田達司、Pilot用のJ-OSを開発<br>
+            <strong>12月</strong>：蒲地輝尚 著「入門Windows 95」（アスキー）出版（村瀬康治との共著）
+          </div>
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>4月</strong>：USロボティクス「Pilot 1000」「Pilot 5000」発売<br>
+            <strong>8月</strong>：Googleの最初のバージョンがスタンフォード大にて公開
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">1998</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            ・チームラボ設立。創立メンバーの猪子寿之はUTMCにも顔を出していたことがあったらしい
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2000</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>12月</strong>：CannonSmash 開発用にIRCサーバーの運用開始。後のUTMC全体用のIRCサーバーになる。現在はSlackへ移行
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2001</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>3月</strong>：Mac OS X発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2004</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>8月</strong>：蒲地輝尚 著「はじめて読むPentium : マシン語入門編」（アスキー）出版（水越康博との共著）
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2007</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>6月</strong>：初代iPhone発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2008</div>
+        <div class="events">
+          <div class="event world">
+            <span class="event-label">世間</span>
+            <strong>7月</strong>：日本にてiPhone 3GS発売<br>
+            <strong>10月</strong>：世界初のAndroid搭載スマートフォン「T-Mobile G1」全米向けに発売
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2018</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>2月</strong>：学生会館本館3F 314Bの部室を退去（手続きを忘れた？）
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2022</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            <strong>2月</strong>：キャンパスプラザＢ棟2階 B306 に部室復活
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2026</div>
+        <div class="events">
+          <div class="event circle">
+            <span class="event-label">サークル</span>
+            ・東大マイコンクラブ50周年
           </div>
         </div>
       </div>

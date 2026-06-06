@@ -42,8 +42,8 @@ def month_sort_key(item):
 def format_event_line(month, content):
     content = html.escape(content)
     if month:
-        return f"{month}月：{content}"
-    return content
+        return f"<strong>{month}月</strong>：{content}"
+    return f"・{content}"
 
 
 def load_rows(path):
