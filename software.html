@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UTMC - 活動成果 - ソフトウェア</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a212b;
+      --surface-hover: #222c38;
+      --border: #2c3744;
+      --text: #e6edf3;
+      --text-muted: #9aa7b4;
+      --accent: #5eb3f6;
+      --accent-soft: rgba(94, 179, 246, 0.12);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+                   "Noto Sans JP", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem;
+    }
+
+    header {
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 0.4rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lead {
+      margin: 0.8rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: clamp(0.9rem, 2vw, 1.3rem);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .card-title a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card-title a:hover { text-decoration: underline; }
+
+    .card-title .ext {
+      display: inline-block;
+      margin-left: 0.3em;
+      font-size: 0.7em;
+      opacity: 0.7;
+      vertical-align: middle;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.5rem;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35em;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      font-size: 0.82rem;
+    }
+
+    .tag b {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.74rem;
+      letter-spacing: 0.03em;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .desc a { color: var(--accent); }
+    .desc code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.05em 0.35em;
+      border-radius: 5px;
+      font-size: 0.85em;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f4f6f9;
+        --surface: #ffffff;
+        --surface-hover: #ffffff;
+        --border: #dde3ea;
+        --text: #1a2330;
+        --text-muted: #5a6b7b;
+        --accent: #1769c4;
+        --accent-soft: rgba(23, 105, 196, 0.08);
+      }
+      .card:hover { box-shadow: 0 8px 24px rgba(20, 40, 70, 0.08); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">活動成果</p>
+      <h1>UTMC ソフトウェア</h1>
+      <p class="lead">UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。減色ツールやエミュレータ、ゲーム、ネットワークシステムまで、年代を越えた作品が並びます。</p>
+    </header>
+
+    <main class="grid">
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://web.archive.org/web/20220307214112/http://www.pag1u.net/download/frame_index.html">pag1シリーズ<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Datura</span></div>
+        <p class="desc">高性能な減色ツール</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://simple-palm.com/josseries/">J-OS ほか<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Gonta</span></div>
+        <p class="desc">US Robotics (3com) の PDA である PalmPilot で日本語を扱うためのツール</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Hex Calc/Jan Sheet</h2>
+        <div class="meta"><span class="tag"><b>作者</b>Zndoko</span></div>
+        <p class="desc">PalmPilot 用のツール [A small hexadecimal calculator / A game score keeper]</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">POP3 Mailer / Proxy Server by Java</h2>
+        <div class="meta"><span class="tag"><b>作者</b>Fug</span></div>
+        <p class="desc">Java で書かれた POP3メイラとプロキシ・サーバ<br>(bit 別冊『Java プログラミング例題集』収録用)</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">日本語化パッチ for old Hotjava</h2>
+        <div class="meta"><span class="tag"><b>作者</b>Fug</span></div>
+        <p class="desc">αな頃の HotJava を日本語化するためのもの。現在は Sun 純正品でも日本語が(一応)使えるので不要</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://www.asahi-net.or.jp/~rb2t-kmc/">Netscape Plugin Chooser<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Tama</span></div>
+        <p class="desc">Netscape Navigator for Windowsに組み込んだプラグインを切り替えるソフト</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://web.archive.org/web/20040609193540/https://www.utmc.or.jp/~nan/csmash/index.html">Cannon Smash<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>NAN</span></div>
+        <p class="desc">3Dな卓球ゲーム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://museum.ipsj.or.jp/heritage/SONY_NEWS.html">SONY NEWSワークステーション<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>手塚 宏史</span></div>
+        <p class="desc">SONYのUNIXワークステーション。手塚は主にNEWS-OSのカーネルを担当。2024年に情報処理学会が情報処理技術遺産に認定</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">RFTPd</h2>
+        <div class="meta"><span class="tag"><b>作者</b>Mick'n</span></div>
+        <p class="desc">FTP Daemon。開発中(某所で運用中)</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">site index related patches</h2>
+        <div class="meta"><span class="tag"><b>作者</b>Mick'n</span></div>
+        <p class="desc">FTP サービスで site index を提供するための各種 patch</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://web.archive.org/web/20041013090656/http://plaza16.mbn.or.jp/~irisroom/jangband/jangband.html">JAngband（日本語版アングバンド）<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>日本語化</b>しとしん (A-kak♪)</span></div>
+        <p class="desc">Angbandの日本語版</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://www.toyoshima-house.net/tss/index.html">T'SoundSystem<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>とよしま</span></div>
+        <p class="desc">Macintosh / Windows で動作するサウンドシステム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">9five</h2>
+        <div class="meta"><span class="tag"><b>作者</b>とよしま</span></div>
+        <p class="desc">シューティングゲーム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://www.toyoshima-house.net/classic/knj/index.html">KoNetJoker<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>とよしま</span></div>
+        <p class="desc">X68000 用 WWW ブラウザ</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://www.toyoshima-house.net/classic/mf/index.html">まいんど・ふぉ〜かす<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>とよしま</span></div>
+        <p class="desc">フォーカスのあるウィンドウを強調する</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">MP / WinMDX</h2>
+        <div class="meta"><span class="tag"><b>作者</b>宮本研究員[袋研]</span></div>
+        <p class="desc">音関連いろいろ</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://en.wikipedia.org/wiki/Qvwm">qvwm</a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>光来研究員[袋研]</span></div>
+        <p class="desc">ゲイツに魂を売った X 用の Window Manager</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">libqv</h2>
+        <div class="meta"><span class="tag"><b>作者</b>石谷研究員[袋研]</span></div>
+        <p class="desc">X 用の Windows ライクなツールキット</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">BNT6502KP</h2>
+        <div class="meta"><span class="tag"><b>作者</b>かっぱ[袋研]</span></div>
+        <p class="desc">PC-Engineとファミコンのエミュレータ</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://www.junirose.com/manbiki/index.html">万引少年<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>鈴木浩</span></div>
+        <p class="desc">79年の駒場祭に出展されたPET用ゲーム。「セブンイレブイン」で店の人に見付からないように万引をする、というもの。「万引少女」というのもあり、こちらは喋ったらしい。<a target="_blank" href="https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%86%E3%83%AB%E3%82%B9%E3%82%B2%E3%83%BC%E3%83%A0">世界初のステルスゲームと言われている</a></p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">サテライトコマンド</h2>
+        <p class="desc">インベーダーやギャラクシアンタイプのゲーム。このゲームには「西暦2199年、地球は謎の宇宙艦隊の猛攻にさらされていた。宇宙戦艦ヤマトは、地球の危機を救うため発進した」で始まるストーリーがついている</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">ブラックホール</h2>
+        <p class="desc">迷路型のゲーム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">HIROMI曲サーチシステム</h2>
+        <p class="desc">太田裕美の曲をサーチするデータベースシステム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">OLION (オリオン)</h2>
+        <div class="meta">
+          <span class="tag"><b>作者</b>akira</span>
+          <span class="tag"><b>発売元</b>ASCII</span>
+        </div>
+        <p class="desc">NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ。X や 98 に移植されたものもあるらしい。参考ページ: <a target="_blank" href="http://www.pc-6001.net/p6/">PC-6001 WORLD<span class="ext">↗</span></a></a></p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">クエスト</h2>
+        <div class="meta">
+          <span class="tag"><b>作者</b>Hiromi（大葉浩美）</span>
+          <span class="tag"><b>発売元</b>ASCII</span>
+        </div>
+        <p class="desc">NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://web.archive.org/web/20211022101150/http://www.pag1u.net/milkyway/frame_index.html">Milkyway Astrology<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Datura</span></div>
+        <p class="desc">独自の占星術理論によるシステム。1980年ごろ、Datura 氏はテレビ朝日の番組に出演し、芸能人相手に占いしていた</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%83%E3%81%A3%E3%81%8F%E3%82%93%E3%81%BD%E3%81%A3%E3%81%B7">ちゃっくんぽっぷ<span class="ext">↗</span></a></h2>
+        <div class="meta">
+          <span class="tag"><b>作者</b>zak</span>
+          <span class="tag"><b>時期</b>1983年</span>
+          <span class="tag"><b>発売元</b>TAITO</span>
+        </div>
+        <p class="desc">オリジナルはベーシックマスター(Level III?) で開発された「Chack'n Chack」というゲーム。ゲーセンやパソコン用に売られた</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">The COCKPIT</h2>
+        <div class="meta">
+          <span class="tag"><b>作者</b>鈴木浩</span>
+          <span class="tag"><b>発売元</b>工学社(?)</span>
+        </div>
+        <p class="desc">フライトシミュレータ。後にX68000に移植されたりもした</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://akiba-pc.watch.impress.co.jp/docs/event/1062259.html">テセウス<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Akira ほか</span></div>
+        <p class="desc">MSX用アクションゲーム。元はPC-6001用</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">ATSON-1</h2>
+        <div class="meta">
+          <span class="tag"><b>作者</b>鈴木浩、Akira、ほか</span>
+          <span class="tag"><b>発売元</b>トランスコスモス</span>
+        </div>
+        <p class="desc">グループウェア。UNIXでも動き、インターネット技術を内部的に使用していた。Perl 1にた独自言語でカスタマイズできた。企業や大学のグループウェアとして使用された。朝日パソコンネット（後のASAHIネット）としても運用されていた。</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">日本語ローグ (UTMC版)</h2>
+        <div class="meta"><span class="tag"><b>作者</b>TOMOYO(?)</span></div>
+        <p class="desc">Rogue を日本語化したもの。訳に特徴<code>:-)</code> がある</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://datatracker.ietf.org/doc/html/rfc1554">ISO-2022-JP-2<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>mohta</span></div>
+        <p class="desc">ISO 2022-JP の拡張。日本語の文字エンコーディングの一つ</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">パティの日曜日</h2>
+        <div class="meta"><span class="tag"><b>作者</b>ポリアンナ</span></div>
+        <p class="desc">通称「パテ日」。メイプル組み込み用ゲームとして作られたが、本郷教育用計算機センターで運用されていた BBS (これは tan さん作) でも提供された (TECC 廃止により今は無い)</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Mapletown Network</h2>
+        <div class="meta"><span class="tag"><b>作者</b>ポリアンナ、W.M.、Brain、Mick'n、CAM</span></div>
+        <p class="desc">アスキーネットが実験運用だった頃、アニメ専門として開設された「パソコン通信」用のシステム。最初の版は Disk BASIC で書かれた。後、DOS + Turbo C、DOS + Turbo C++、MINIX + C、Coherent + C と変遷し、最後は BSD/386 (BSD/OS) + C で書かれたものが動いていた。<a target="_blank" href="https://www.maple.town/">現在はログのアーカイブを読むことができる。</a></p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="http://www.freshports.org/games/xchadance/">xchadance<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>てとりとゆかいな仲間たち</span></div>
+        <p class="desc">X / socket programming の練習として冗談で作られた。X11 版 chadance。X Server を道連れにしておちてしまう、などの愉快なバグが多かった。もっと手を入れた版もあったはずだが、どこへ行ったのだろう</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title"><a target="_blank" href="https://iwatam-server.sakura.ne.jp/software/tictactoetex/index.html">3目並べ<span class="ext">↗</span></a></h2>
+        <div class="meta"><span class="tag"><b>作者</b>Iwatar</span></div>
+        <p class="desc">TeX を使って書かれた 3目並べのゲーム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">占い天使ミラクルミント</h2>
+        <div class="meta"><span class="tag"><b>作者</b>ミント制作斑</span></div>
+        <p class="desc">アニメ作って専門の人を呼んでアテレコしてもらった</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">某爆弾男</h2>
+        <div class="meta"><span class="tag"><b>作者</b>ixtl、Tamon、Mak、Momooh</span></div>
+        <p class="desc">「ボボンバーマン」と読む。ネットワーク対戦型ゲーム</p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">ギャバンボーイ</h2>
+        <div class="meta"><span class="tag"><b>作者</b>とよしま</span></div>
+        <p class="desc">Windows ゲームボーイエミュレータ</p>
+      </article>
+
+    </main>
+
+    <footer>
+      <p><a href="/">トップページへ戻る</a></p>
+    </footer>
+  </div>
+</body>
+</html>
