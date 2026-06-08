@@ -10,6 +10,8 @@ og:image を抽出し、1200x630 px の OGP 画像を生成する。背景は白
 ../files/utmclogo.svg のロゴを埋め込み、右側にタイトル・説明・サイト名を描く。
 生成した画像は og:image に指定されているファイル名で保存する。
 
+必要なパッケージ:
+    Ubuntu: fonts-noto-cjk
 使い方:
     uv run make-ogp-image.py ../software.html
 """
