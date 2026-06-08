@@ -15,9 +15,11 @@ import sys
 from collections import defaultdict
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-TSV_PATH = os.path.join(SCRIPT_DIR, "timeline.tsv")
-INDEX_PATH = os.path.join(SCRIPT_DIR, "index.html")
-OUTPUT_PATH = os.path.join(SCRIPT_DIR, "index.html.new")
+DOCROOT_DIR = os.path.join(SCRIPT_DIR, "..")
+DATA_DIR = os.path.join(DOCROOT_DIR, "data")
+TSV_PATH = os.path.join(DATA_DIR, "timeline.tsv")
+INDEX_PATH = os.path.join(DOCROOT_DIR, "history.html")
+OUTPUT_PATH = os.path.join(DOCROOT_DIR, "history.html.new")
 
 START_MARKER = "<!-- timeline start -->"
 END_MARKER = "<!-- timeline end -->"
@@ -67,7 +69,7 @@ def group_by_year(rows):
 
 def render(years, out):
     out.write('  <section class="timeline-section">\n')
-    out.write("    <h2>50年のあゆみ</h2>\n")
+    out.write("    <h2>UTMCの歴史</h2>\n")
     out.write('    <div class="timeline-container">\n')
     out.write('      <div class="timeline-header">\n')
     out.write('        <span class="circle-header">サークルの出来事</span>\n')
@@ -77,8 +79,8 @@ def render(years, out):
 
     for year in sorted(years.keys(), key=int):
         data = years[year]
-        out.write('      <div class="timeline-item">\n')
-        out.write(f'        <div class="year">{year}</div>\n')
+        out.write(f'      <div class="timeline-item" id="year-{year}">\n')
+        out.write(f'        <div class="year">{year}<a class="anchor" href="#year-{year}">#</a></div>\n')
         out.write('        <div class="events">\n')
 
         for cat in CATEGORY_ORDER:
