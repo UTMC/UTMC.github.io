@@ -1,0 +1,5 @@
+base_url = "https://www.utmc.or.jp"
+site_name = "UTMC"
+default_layout = "layout.html"
+files_dir = "files"
+layout_dir = "_layout"

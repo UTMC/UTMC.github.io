@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{ canonical_url }}">
+{% if og_image_url %}
+	<meta property="og:image" content="{{ og_image_url }}">
+{% endif %}
+{% if description %}
+	<meta property="og:description" content="{{ description }}">
+{% endif %}
+	<meta property="og:site_name" content="{{ site_name }}">
+	<meta property="og:locale" content="ja_JP">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@utmc">
+	<meta name="twitter:title" content="{{ title }}">
+{% if description %}
+	<meta name="twitter:description" content="{{ description }}">
+{% endif %}
+{% if og_image_url %}
+	<meta name="twitter:image" content="{{ og_image_url }}">
+{% endif %}
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ base_url }}/favicon.ico" sizes="any">
+	<link rel="icon" href="{{ base_url }}/files/utmclogo.svg" type="image/svg+xml">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ base_url }}/files/favicon-32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/files/apple-touch-icon.png">
+	<link rel="mask-icon" href="{{ base_url }}/files/safari-pinned-tab.svg" color="#000000">
+	<title>{{ title }} | {{ site_name }}</title>
+	<link rel="stylesheet" type="text/css" media="all" href="./files/style.css">
+</head>
+
+<body class="page-template-default page singular two-column right-sidebar">
+	<div id="page" class="hfeed">
+		<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="./" rel="home">東大マイコンクラブ</a></span></h1>
+				<h2 id="site-description">新入部員募集中！</h2>
+			</hgroup>
+
+			<a href="./">
+				<img src="./files/utmc_logo_header_wordpress-1.png" width="1000" height="288" alt="東大マイコンクラブ">
+			</a>
+
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">メインメニュー</h3>
+				<div class="skip-link"><a class="assistive-text" href="#content">メインコンテンツへ移動</a></div>
+				<div class="menu">
+					<ul>
+						<li class="page_item"><a href="./">UTMCとは</a></li>
+						<li class="page_item"><a href="./newcomer">入部希望の方</a></li>
+						<li class="page_item"><a href="./slides">LTスライド集</a></li>
+						<li class="page_item"><a href="https://docs.google.com/spreadsheets/d/1mSy9ncH4RQj3mlWQSOkPrBLRxLQKi3qOFM0EyORyHRw/edit?usp=sharing" target="_blank" rel="noopener noreferrer">LTスケジュール（予定）</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<div id="main">
+			<div id="primary" class="horizontaldiv">
+				<div id="content" role="main">
+					<article class="page type-page status-publish hentry">
+						<header class="entry-header">
+							<h1 class="entry-title">{{ title }}</h1>
+						</header>
+
+						<div class="entry-content">
+							{{ content }}
+						</div>
+
+						<footer class="entry-meta">
+						</footer>
+					</article>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colophon" role="contentinfo">
+		</footer>
+	</div>
+</body>
+
+</html>
