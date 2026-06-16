@@ -1,0 +1,30 @@
+/* ヒーロー（ページ固有） */
+.hero_container {
+  grid-template-columns: 360px 1fr;
+}
+
+.hero__logo {
+  margin-left: 30px;
+}
+
+.hero__title {
+  margin-left: 100px;
+}
+
+.hero .subtitle {
+  margin-left: 80px;
+  padding-left: 4em;
+}
+
+/* 年表セクション */
+.timeline-section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.timeline-section h2 {
+  font-size: 2rem;
+  color: #667eea;
+  margin-bottom: 40px;
+  text-align: center;
+}
