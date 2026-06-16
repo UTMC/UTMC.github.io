@@ -25,21 +25,11 @@ cd "$SCRIPT_DIR"
 uv sync
 cd "$ROOT_DIR"
 
-# Step 2: Run pre-generation scripts (optional)
+# Step 2: Run the static site generator
+# (The timeline section is generated during this step via the {% exec %}
+# directive in history.md; see scripts/make-timeline.py.)
 echo ""
-echo "Step 2: Running pre-generation scripts..."
-
-# Generate timeline HTML if timeline.tsv exists
-if [[ -f "data/timeline.tsv" ]]; then
-    echo "  - Generating timeline..."
-    cd "$SCRIPT_DIR"
-    uv run python make-timeline.py
-    cd "$ROOT_DIR"
-fi
-
-# Step 3: Run the static site generator
-echo ""
-echo "Step 3: Generating HTML from Markdown..."
+echo "Step 2: Generating HTML from Markdown..."
 cd "$SCRIPT_DIR"
 uv run python -m generator.cli --config "$ROOT_DIR/config.toml"
 BUILD_EXIT_CODE=$?

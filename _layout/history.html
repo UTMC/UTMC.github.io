@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ canonical_url }}">
+{% if og_image_url %}
+  <meta property="og:image" content="{{ og_image_url }}">
+{% endif %}
+{% if description %}
+  <meta property="og:description" content="{{ description }}">
+{% endif %}
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@utmc">
+  <meta name="twitter:title" content="{{ title }}">
+{% if description %}
+  <meta name="twitter:description" content="{{ description }}">
+{% endif %}
+{% if og_image_url %}
+  <meta name="twitter:image" content="{{ og_image_url }}">
+{% endif %}
+  <link rel="icon" href="{{ base_url }}/favicon.ico" sizes="any">
+  <link rel="icon" href="{{ base_url }}/files/utmclogo.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ base_url }}/files/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/files/apple-touch-icon.png">
+  <link rel="mask-icon" href="{{ base_url }}/files/safari-pinned-tab.svg" color="#000000">
+  <link rel="stylesheet" href="./files/common.css">
+  <link rel="stylesheet" href="./files/history.css">
+  <title>{{ title }} | {{ site_name }}</title>
+</head>
+<body>
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero_container">
+      <img
+        class="hero__logo"
+        src="./files/utmclogo.svg"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <div>
+        <h1 class="hero__title">
+          <span>UTMC</span>
+        </h1>
+        <p class="subtitle">東大マイコンクラブの歴史</p>
+      </div>
+    </div>
+  </section>
+
+  {{ content }}
+
+  <!-- フッター -->
+  <footer>
+    <p><a href="./">トップページ</a> | <a href="./50/">UTMC50周年</a></p>
+    <p>&copy; 1976-2026 東大マイコンクラブ</p>
+  </footer>
+</body>
+</html>

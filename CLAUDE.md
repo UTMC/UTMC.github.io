@@ -86,6 +86,24 @@ layout: layout.html
 ---
 ```
 
+## The `exec` directive
+
+A Markdown file may embed the standard output of a helper script using a
+one-line directive:
+
+```text
+{% exec scripts/make-timeline.py data/timeline.tsv %}
+```
+
+The command runs with the repository root as its working directory (so relative
+paths resolve the same way as in `update.sh`), and its stdout is inserted as raw
+HTML. If the program ends in `.py` it is run with the build's Python
+interpreter. This relies on the trusted-maintainer model: only run commands you
+control. The build fails if the command exits non-zero.
+
+`history.md` uses this to generate the timeline section from
+`data/timeline.tsv` via `scripts/make-timeline.py`.
+
 ## Configuration
 
 All global configuration is stored in `config.toml` at the repository root.

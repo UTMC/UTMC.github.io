@@ -1,28 +1,17 @@
 #!/usr/bin/env python3
-"""timeline.tsv から年表セクション HTML を生成し、index.html の
-<!-- timeline start --> から <!-- timeline end --> までを置き換えて
-index.html.new に書き出す。
+"""timeline.tsv から年表セクションの HTML を生成して標準出力へ書き出す。
+
+SSG の exec 拡張から呼び出され、history.md に年表セクションを埋め込むために使う。
+
+    {% exec scripts/make-timeline.py data/timeline.tsv %}
 
 使い方:
-    python3 make-timeline.py            # index.html.new を生成
-    python3 make-timeline.py --stdout   # 年表セクションの HTML だけを stdout へ
+    python3 make-timeline.py <timeline.tsv のパス>
 """
 import csv
 import html
-import io
-import os
 import sys
 from collections import defaultdict
-
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DOCROOT_DIR = os.path.join(SCRIPT_DIR, "..")
-DATA_DIR = os.path.join(DOCROOT_DIR, "data")
-TSV_PATH = os.path.join(DATA_DIR, "timeline.tsv")
-INDEX_PATH = os.path.join(DOCROOT_DIR, "history.html")
-OUTPUT_PATH = os.path.join(DOCROOT_DIR, "history.html.new")
-
-START_MARKER = "<!-- timeline start -->"
-END_MARKER = "<!-- timeline end -->"
 
 # TSV の分類値 -> (CSS クラス名, 表示ラベル)
 CATEGORY_LABEL = {
@@ -101,42 +90,14 @@ def render(years, out):
     out.write("  </section>\n")
 
 
-def build_timeline_html(years):
-    buf = io.StringIO()
-    render(years, buf)
-    return buf.getvalue()
-
-
-def replace_timeline(index_text, timeline_html):
-    start = index_text.find(START_MARKER)
-    end = index_text.find(END_MARKER)
-    if start == -1 or end == -1:
-        raise SystemExit(
-            f"マーカーが見つかりません: {START_MARKER} / {END_MARKER}"
-        )
-    if end < start:
-        raise SystemExit("マーカーの順序が不正です（end が start より前）")
-
-    head = index_text[: start + len(START_MARKER)]
-    tail = index_text[end:]
-    return f"{head}\n{timeline_html}  {tail}"
-
-
 def main():
-    rows = load_rows(TSV_PATH)
+    if len(sys.argv) != 2:
+        print("使い方: make-timeline.py <timeline.tsv のパス>", file=sys.stderr)
+        raise SystemExit(2)
+
+    rows = load_rows(sys.argv[1])
     years = group_by_year(rows)
-
-    if "--stdout" in sys.argv[1:]:
-        render(years, sys.stdout)
-        return
-
-    timeline_html = build_timeline_html(years)
-    with open(INDEX_PATH, encoding="utf-8") as f:
-        index_text = f.read()
-    new_text = replace_timeline(index_text, timeline_html)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        f.write(new_text)
-    print(f"書き出しました: {OUTPUT_PATH}", file=sys.stderr)
+    render(years, sys.stdout)
 
 
 if __name__ == "__main__":

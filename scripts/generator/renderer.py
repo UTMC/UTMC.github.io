@@ -5,6 +5,8 @@ from typing import TYPE_CHECKING
 import markdown
 from jinja2 import Environment, FileSystemLoader
 
+from .exec_extension import ExecExtension
+
 if TYPE_CHECKING:
     from .config import Config
     from .page import Page
@@ -21,6 +23,7 @@ class Renderer:
             extensions=[
                 "extra",  # Tables, fenced code, footnotes, etc.
                 "toc",  # Table of contents
+                ExecExtension(root_dir=config.root_dir),  # {% exec ... %}
             ],
             output_format="html5",
         )
