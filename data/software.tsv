@@ -1,0 +1,40 @@
+名前	URL	作者	日本語化	時期	発売元	説明
+pag1シリーズ	https://web.archive.org/web/20220307214112/http://www.pag1u.net/download/frame_index.html	Datura				高性能な減色ツール
+J-OS ほか	http://simple-palm.com/josseries/	Gonta				US Robotics (3com) の PDA である PalmPilot で日本語を扱うためのツール
+Hex Calc/Jan Sheet		Zndoko				PalmPilot 用のツール [A small hexadecimal calculator / A game score keeper]
+POP3 Mailer / Proxy Server by Java		Fug				Java で書かれた POP3メイラとプロキシ・サーバ<br>(bit 別冊『Java プログラミング例題集』収録用)
+日本語化パッチ for old Hotjava		Fug				αな頃の HotJava を日本語化するためのもの。現在は Sun 純正品でも日本語が(一応)使えるので不要
+Netscape Plugin Chooser	http://www.asahi-net.or.jp/~rb2t-kmc/	Tama				Netscape Navigator for Windowsに組み込んだプラグインを切り替えるソフト
+Cannon Smash	https://web.archive.org/web/20040609193540/https://www.utmc.or.jp/~nan/csmash/index.html	NAN				3Dな卓球ゲーム
+SONY NEWSワークステーション	https://museum.ipsj.or.jp/heritage/SONY_NEWS.html	手塚 宏史				SONYのUNIXワークステーション。手塚は主にNEWS-OSのカーネルを担当。2024年に情報処理学会が情報処理技術遺産に認定
+RFTPd		Mick'n				FTP Daemon。開発中(某所で運用中)
+site index related patches		Mick'n				FTP サービスで site index を提供するための各種 patch
+JAngband（日本語版アングバンド）	https://web.archive.org/web/20041013090656/http://plaza16.mbn.or.jp/~irisroom/jangband/jangband.html		しとしん (A-kak♪)			Angbandの日本語版
+T'SoundSystem	http://www.toyoshima-house.net/tss/index.html	とよしま				Macintosh / Windows で動作するサウンドシステム
+9five		とよしま				シューティングゲーム
+KoNetJoker	http://www.toyoshima-house.net/classic/knj/index.html	とよしま				X68000 用 WWW ブラウザ
+まいんど・ふぉ〜かす	http://www.toyoshima-house.net/classic/mf/index.html	とよしま				フォーカスのあるウィンドウを強調する
+MP / WinMDX		宮本研究員[袋研]				音関連いろいろ
+qvwm	https://en.wikipedia.org/wiki/Qvwm	光来研究員[袋研]				ゲイツに魂を売った X 用の Window Manager
+libqv		石谷研究員[袋研]				X 用の Windows ライクなツールキット
+BNT6502KP		かっぱ[袋研]				PC-Engineとファミコンのエミュレータ
+万引少年	https://www.junirose.com/manbiki/index.html	鈴木浩				79年の駒場祭に出展されたPET用ゲーム。「セブンイレブイン」で店の人に見付からないように万引をする、というもの。「万引少女」というのもあり、こちらは喋ったらしい。<a target="_blank" href="https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%86%E3%83%AB%E3%82%B9%E3%82%B2%E3%83%BC%E3%83%A0">世界初のステルスゲームと言われている</a>
+サテライトコマンド						インベーダーやギャラクシアンタイプのゲーム。このゲームには「西暦2199年、地球は謎の宇宙艦隊の猛攻にさらされていた。宇宙戦艦ヤマトは、地球の危機を救うため発進した」で始まるストーリーがついている
+ブラックホール						迷路型のゲーム
+HIROMI曲サーチシステム						太田裕美の曲をサーチするデータベースシステム
+OLION (オリオン)		akira			ASCII	NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ。X や 98 に移植されたものもあるらしい。参考ページ: <a target="_blank" href="http://www.pc-6001.net/p6/">PC-6001 WORLD</a>
+クエスト		Hiromi（大葉浩美）			ASCII	NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ
+Milkyway Astrology	https://web.archive.org/web/20211022101150/http://www.pag1u.net/milkyway/frame_index.html	Datura				独自の占星術理論によるシステム。1980年ごろ、Datura 氏はテレビ朝日の番組に出演し、芸能人相手に占いしていた
+ちゃっくんぽっぷ	https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%83%E3%81%A3%E3%81%8F%E3%82%93%E3%81%BD%E3%81%A3%E3%81%B7	zak		1983年	TAITO	オリジナルはベーシックマスター(Level III?) で開発された「Chack'n Chack」というゲーム。ゲーセンやパソコン用に売られた
+The COCKPIT		鈴木浩			工学社(?)	月刊I/O 1984年4月号に掲載された日立ベーシックマスター レベル3用のフライトシミュレータ。I/Oプログラム・コンテスト最優秀作品。後にMZシリーズや、X68000等に移植されたりもした
+テセウス	https://akiba-pc.watch.impress.co.jp/docs/event/1062259.html	Akira ほか				MSX用アクションゲーム。元はPC-6001用
+ATSON-1		鈴木浩、Akira、ほか			トランスコスモス	グループウェア。UNIXでも動き、インターネット技術を内部的に使用していた。Perl 1にた独自言語でカスタマイズできた。企業や大学のグループウェアとして使用された。朝日パソコンネット（後のASAHIネット）としても運用されていた。
+日本語ローグ (UTMC版)		TOMOYO(?)				Rogue を日本語化したもの。訳に特徴<code>:-)</code> がある
+ISO-2022-JP-2	https://datatracker.ietf.org/doc/html/rfc1554	mohta				ISO 2022-JP の拡張。日本語の文字エンコーディングの一つ
+パティの日曜日		ポリアンナ				通称「パテ日」。メイプル組み込み用ゲームとして作られたが、本郷教育用計算機センターで運用されていた BBS (これは tan さん作) でも提供された (TECC 廃止により今は無い)
+Mapletown Network		ポリアンナ、W.M.、Brain、Mick'n、CAM				アスキーネットが実験運用だった頃、アニメ専門として開設された「パソコン通信」用のシステム。最初の版は Disk BASIC で書かれた。後、DOS + Turbo C、DOS + Turbo C++、MINIX + C、Coherent + C と変遷し、最後は BSD/386 (BSD/OS) + C で書かれたものが動いていた。<a target="_blank" href="https://www.maple.town/">現在はログのアーカイブを読むことができる。</a>
+xchadance	http://www.freshports.org/games/xchadance/	てとりとゆかいな仲間たち				X / socket programming の練習として冗談で作られた。X11 版 chadance。X Server を道連れにしておちてしまう、などの愉快なバグが多かった。もっと手を入れた版もあったはずだが、どこへ行ったのだろう
+3目並べ	https://iwatam-server.sakura.ne.jp/software/tictactoetex/index.html	Iwatar				TeX を使って書かれた 3目並べのゲーム
+占い天使ミラクルミント		ミント制作斑				アニメ作って専門の人を呼んでアテレコしてもらった
+某爆弾男		ixtl、Tamon、Mak、Momooh				「ボボンバーマン」と読む。ネットワーク対戦型ゲーム
+ギャバンボーイ		とよしま				Windows ゲームボーイエミュレータ
