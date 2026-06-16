@@ -1,199 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UTMC - 活動成果 - ソフトウェア</title>
-  <meta name="description" content="UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="東大マイコンクラブ (UTMC)">
-  <meta property="og:url" content="https://www.utmc.or.jp/software">
   <meta property="og:title" content="UTMC ソフトウェア">
-  <meta property="og:description" content="UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.utmc.or.jp/software">
   <meta property="og:image" content="https://www.utmc.or.jp/files/ogp-software.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="UTMC ソフトウェア — 活動成果">
+  <meta property="og:description" content="UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。">
+  <meta property="og:site_name" content="UTMC">
   <meta property="og:locale" content="ja_JP">
-  <link rel="icon" href="favicon.ico" sizes="any">
-	<link rel="icon" href="https://www.utmc.or.jp/files/utmclogo.svg" type="image/svg+xml">
-	<link rel="icon" type="image/png" sizes="32x32" href="https://www.utmc.or.jp/files/favicon-32.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="https://www.utmc.or.jp/files/apple-touch-icon.png">
-	<link rel="mask-icon" href="https://www.utmc.or.jp/files/safari-pinned-tab.svg" color="#000000">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@utmc">
   <meta name="twitter:title" content="UTMC ソフトウェア">
   <meta name="twitter:description" content="UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。">
   <meta name="twitter:image" content="https://www.utmc.or.jp/files/ogp-software.png">
-  <style>
-    :root {
-      --bg: #0f1419;
-      --surface: #1a212b;
-      --surface-hover: #222c38;
-      --border: #2c3744;
-      --text: #e6edf3;
-      --text-muted: #9aa7b4;
-      --accent: #5eb3f6;
-      --accent-soft: rgba(94, 179, 246, 0.12);
-      --radius: 14px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { -webkit-text-size-adjust: 100%; }
-
-    body {
-      margin: 0;
-      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-                   "Noto Sans JP", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem;
-    }
-
-    header {
-      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin: 0 0 0.4rem;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(1.6rem, 5vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .lead {
-      margin: 0.8rem 0 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: clamp(0.9rem, 2vw, 1.3rem);
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.3rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    }
-
-    .card:hover {
-      background: var(--surface-hover);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .card-title {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .card-title a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .card-title a:hover { text-decoration: underline; }
-
-    .card-title .ext {
-      display: inline-block;
-      margin-left: 0.3em;
-      font-size: 0.7em;
-      opacity: 0.7;
-      vertical-align: middle;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 0.5rem;
-      margin: 0;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.35em;
-      background: var(--accent-soft);
-      border-radius: 999px;
-      padding: 0.18rem 0.7rem;
-      font-size: 0.82rem;
-    }
-
-    .tag b {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.74rem;
-      letter-spacing: 0.03em;
-    }
-
-    .desc {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    .desc a { color: var(--accent); }
-    .desc code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      background: rgba(255, 255, 255, 0.07);
-      padding: 0.05em 0.35em;
-      border-radius: 5px;
-      font-size: 0.85em;
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f4f6f9;
-        --surface: #ffffff;
-        --surface-hover: #ffffff;
-        --border: #dde3ea;
-        --text: #1a2330;
-        --text-muted: #5a6b7b;
-        --accent: #1769c4;
-        --accent-soft: rgba(23, 105, 196, 0.08);
-      }
-      .card:hover { box-shadow: 0 8px 24px rgba(20, 40, 70, 0.08); }
-    }
-  </style>
+  <link rel="icon" href="https://www.utmc.or.jp/favicon.ico" sizes="any">
+  <link rel="icon" href="https://www.utmc.or.jp/files/utmclogo.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.utmc.or.jp/files/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.utmc.or.jp/files/apple-touch-icon.png">
+  <link rel="mask-icon" href="https://www.utmc.or.jp/files/safari-pinned-tab.svg" color="#000000">
+  <link rel="stylesheet" href="./files/software.css">
+  <title>UTMC ソフトウェア | UTMC</title>
 </head>
 <body>
   <div class="page">
@@ -202,7 +30,6 @@
       <h1>UTMC ソフトウェア</h1>
       <p class="lead">UTMC のメンバー、OBが手がけた、あるいは関わったソフトウェアの数々。減色ツールやエミュレータ、ゲーム、ネットワークシステムまで、年代を越えた作品が並びます。</p>
     </header>
-
     <main class="grid">
 
       <article class="card">
@@ -302,7 +129,7 @@
       </article>
 
       <article class="card">
-        <h2 class="card-title"><a target="_blank" href="https://en.wikipedia.org/wiki/Qvwm">qvwm</a></h2>
+        <h2 class="card-title"><a target="_blank" href="https://en.wikipedia.org/wiki/Qvwm">qvwm<span class="ext">↗</span></a></h2>
         <div class="meta"><span class="tag"><b>作者</b>光来研究員[袋研]</span></div>
         <p class="desc">ゲイツに魂を売った X 用の Window Manager</p>
       </article>
@@ -346,7 +173,7 @@
           <span class="tag"><b>作者</b>akira</span>
           <span class="tag"><b>発売元</b>ASCII</span>
         </div>
-        <p class="desc">NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ。X や 98 に移植されたものもあるらしい。参考ページ: <a target="_blank" href="http://www.pc-6001.net/p6/">PC-6001 WORLD<span class="ext">↗</span></a></a></p>
+        <p class="desc">NEC の PC-6001 用のゲーム。AX シリーズのうちの一つ。X や 98 に移植されたものもあるらしい。参考ページ: <a target="_blank" href="http://www.pc-6001.net/p6/">PC-6001 WORLD</a></p>
       </article>
 
       <article class="card">
@@ -453,7 +280,6 @@
       </article>
 
     </main>
-
     <footer>
       <p><a href="/">トップページへ戻る</a></p>
     </footer>

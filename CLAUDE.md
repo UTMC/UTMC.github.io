@@ -102,7 +102,9 @@ interpreter. This relies on the trusted-maintainer model: only run commands you
 control. The build fails if the command exits non-zero.
 
 `history.md` uses this to generate the timeline section from
-`data/timeline.tsv` via `scripts/make-timeline.py`.
+`data/timeline.tsv` via `scripts/make-timeline.py`, and `software.md`
+generates the software card grid from `data/software.tsv` via
+`scripts/make-software.py`.
 
 ## Configuration
 
