@@ -235,6 +235,48 @@
       background-color: #fff;
     }
 
+    .cfp-notice {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      color: #1f2937;
+      background-color: #f5f3ff;
+      border: 3px solid #312e81;
+      border-left-width: 10px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(31, 41, 55, 0.16);
+    }
+
+    .cfp-notice__title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .cfp-notice__title::before {
+      content: "!";
+      display: inline-grid;
+      place-items: center;
+      width: 1.4em;
+      height: 1.4em;
+      color: #fff;
+      background: #312e81;
+      border-radius: 50%;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .cfp-notice p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
     /* 年表セクション */
     .timeline-section {
       padding: 80px 20px;
@@ -477,7 +519,10 @@
 
   <section class="cfp-section">
     <div class="section-container">
-      <p style="font-size: 1.2rem; font-weight: bolder">2026年10月20日追記：参加表明した方にはアンケートフォームと会費の振込先について案内メールをお送りしております。受け取っていない方はお手数ですが、 utmc50th あっとまーく じーめーる どっと こむ あるいは X の @tkusano や Bluesky の @tkusano.jp までご連絡ください。</p>
+      <aside class="cfp-notice" aria-labelledby="cfp-notice-title">
+        <h2 class="cfp-notice__title" id="cfp-notice-title">重要なお知らせ</h2>
+        <p>2026年10月20日追記：参加表明した方にはアンケートフォームと会費の振込先について案内メールをお送りしております。受け取っていない方はお手数ですが、 utmc50th あっとまーく じーめーる どっと こむ あるいは X の @tkusano や Bluesky の @tkusano.jp までご連絡ください。</p>
+      </aside>
     </div>
   </section>
 
